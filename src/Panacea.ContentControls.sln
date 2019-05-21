@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panacea.ContentControls", "Panacea.ContentControls\Panacea.ContentControls.csproj", "{DE38B012-EF3D-4660-BAD1-3B4D29CE4C9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE38B012-EF3D-4660-BAD1-3B4D29CE4C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE38B012-EF3D-4660-BAD1-3B4D29CE4C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE38B012-EF3D-4660-BAD1-3B4D29CE4C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE38B012-EF3D-4660-BAD1-3B4D29CE4C9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {890A8BD0-398B-4BD4-88A9-F7A7211A4BBA}
+	EndGlobalSection
+EndGlobal
