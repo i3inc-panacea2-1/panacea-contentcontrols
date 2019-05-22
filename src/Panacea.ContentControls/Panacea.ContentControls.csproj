@@ -34,6 +34,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +62,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="HospitalServerLazyItemProvider.cs" />
     <Compile Include="ILazyItemProvider.cs" />
     <Compile Include="LazyLoadingTabControl.cs" />
     <Compile Include="LazyLoadingTabControlItem.cs" />
@@ -90,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Panacea.Controls">
-      <Version>0.0.21-beta20190521-1642-g5a2904b</Version>
+      <Version>0.0.25-beta20190522-1431-g8a27c67</Version>
     </PackageReference>
     <PackageReference Include="Panacea.Core">
       <Version>5.0.0</Version>

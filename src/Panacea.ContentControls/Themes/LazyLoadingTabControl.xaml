@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Panacea.ContentControls"
-                    xmlns:mi="clr-namespace:Panacea.Controls;assembly=Panacea.Controls"
+                    xmlns:panaceaCtrl="clr-namespace:Panacea.Controls;assembly=Panacea.Controls"
                     xmlns:multilinguality="clr-namespace:Panacea.Multilinguality;assembly=Panacea.Multilinguality">
     <Style TargetType="{x:Type local:LazyLoadingTabControl}">
         <Setter Property="Background" Value="White" />
@@ -228,7 +228,7 @@
                                                 Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RefreshCommand}"
                                                 Style="{DynamicResource stylessWithBackground}">
                                                 <Viewbox Width="40">
-                                                    <mi:MaterialIcon
+                                                    <panaceaCtrl:MaterialIcon
                                                         Margin="5"
                                                         Background="Transparent"
                                                         DataContext="{x:Null}"
@@ -261,7 +261,7 @@
                                             Height="{Binding ElementName=PART_search, Path=ActualHeight}"
                                             HorizontalAlignment="Left"
                                             Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSearchable, Converter={StaticResource BoolToVis}}">
-                                            <mi:MaterialIcon
+                                            <panaceaCtrl:MaterialIcon
                                                 Margin="5"
                                                 Background="Transparent"
                                                 DataContext="{x:Null}"
@@ -344,7 +344,7 @@
                                         Grid.Row="2"
                                         Margin="3"
                                         HorizontalAlignment="Right">
-                                        <mi:PagerControl
+                                        <panaceaCtrl:PagerControl
                                             Background="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=Color}"
                                             CurrentPage="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=ItemProvider.CurrentPage, Mode=TwoWay}"
                                             MaxPages="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=ItemProvider.TotalPages}" />
