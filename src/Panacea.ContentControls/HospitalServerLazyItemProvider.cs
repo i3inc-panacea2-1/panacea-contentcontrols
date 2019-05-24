@@ -50,11 +50,11 @@ namespace Panacea.ContentControls
                 base.CurrentPage = value;
                 if (!string.IsNullOrEmpty(Search))
                 {
-                    SearchNextAsync(Search);//TODO: SHOULD I AWAIT?
+                    SearchNextAsync(Search).ConfigureAwait(false);//TODO: SHOULD I AWAIT?
                 }
                 else
                 {
-                    GetItems();
+                    GetItems().ConfigureAwait(false);
                 }
             }
         }
