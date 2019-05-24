@@ -2,7 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Panacea.ContentControls"
                     xmlns:panaceaCtrl="clr-namespace:Panacea.Controls;assembly=Panacea.Controls"
-                    xmlns:multilinguality="clr-namespace:Panacea.Multilinguality;assembly=Panacea.Multilinguality">
+                    xmlns:multilinguality="clr-namespace:Panacea.Multilinguality;assembly=Panacea.Multilinguality"
+                    xmlns:converters="clr-namespace:Panacea.ContentControls.Converters">
+    <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    <converters:BooleanInvertedToVisibilityConverter x:Key="BooleanInvertedToVisibilityConverter"/>
     <Style TargetType="{x:Type local:LazyLoadingTabControl}">
         <Setter Property="Background" Value="White" />
         <Setter Property="Template">

@@ -1,7 +1,6 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="LazyLoadingTabControl.xaml"/>
-        <ResourceDictionary Source="LazyLoadingTabControlItem.xaml"/>
+        <ResourceDictionary Source="/Panacea.ContentControls;component/Themes/LazyLoadingTabControl.xaml" />
+        <ResourceDictionary Source="/Panacea.ContentControls;component/Themes/LazyLoadingTabControlItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
