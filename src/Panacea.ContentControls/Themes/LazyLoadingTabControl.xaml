@@ -54,7 +54,7 @@
                                             <TextBlock
                                                 Grid.Column="1"
                                                 VerticalAlignment="Center"
-                                                FontSize="{DynamicResource FontSize-Xx-Large}"
+                                                panaceaCtrl:Material.RelativeFontSizeRatio="1.4"
                                                 FontWeight="SemiBold"
                                                 Foreground="White"
                                                 Text="{TemplateBinding Title}"
@@ -120,7 +120,7 @@
                                                         <TextBlock
                                                             Margin="0"
                                                             Padding="5"
-                                                            FontSize="{DynamicResource FontSize-Normal}"
+                                                            panaceaCtrl:Material.RelativeFontSizeRatio="1.0"
                                                             FontWeight="Medium"
                                                             Text="{Binding Name}" />
                                                     </DataTemplate>
@@ -221,7 +221,7 @@
                                         <TextBlock
                                             Margin="10,5"
                                             VerticalAlignment="Center"
-                                            FontSize="{DynamicResource FontSize-X-Large}"
+                                            panaceaCtrl:Material.RelativeFontSizeRatio="1.4"
                                             Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.SelectedCategory.Name}"
                                             TextTrimming="CharacterEllipsis" />
 
@@ -251,7 +251,7 @@
                                             Background="#eeffffff"
                                             BorderBrush="#44000000"
                                             BorderThickness="2"
-                                            FontSize="{DynamicResource FontSize-Normal}"
+                                            panaceaCtrl:Material.RelativeFontSizeRatio="1.0"
                                             Foreground="#444"
                                             IsUndoEnabled="False"
                                             MaxLength="50"
@@ -269,7 +269,7 @@
                                                 Background="Transparent"
                                                 DataContext="{x:Null}"
                                                 Foreground="#777"
-                                                Icon="ic_search" />
+                                                Icon="search" />
                                         </Viewbox>
 
 
@@ -358,7 +358,7 @@
                                         Grid.Column="0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        FontSize="{DynamicResource FontSize-Xx-Large}"
+                                        panaceaCtrl:Material.RelativeFontSizeRatio="1.5"
                                         Visibility="{Binding ElementName=PART_itemscontainer, Path=HasItems, Converter={StaticResource BooleanInvertedToVisibilityConverter}}">
                                         <TextBlock.Inlines>
                                             <Run Text="{TemplateBinding Title}" />
