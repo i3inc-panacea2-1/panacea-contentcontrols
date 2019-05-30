@@ -16,7 +16,8 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        ClipToBounds="True">
+                        ClipToBounds="True"
+                        panaceaCtrl:Material.RelativeFontSizeRatio="1.0">
                         <Grid>
                             <Grid x:Name="Root" Focusable="True">
                                 <Grid.RowDefinitions>
