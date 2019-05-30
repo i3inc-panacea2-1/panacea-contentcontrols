@@ -74,7 +74,7 @@
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Foreground="White"
-                                                        Icon="ic_play_arrow" />
+                                                        Icon="play_arrow" />
                                             </Grid>
                                         </Button>
                                         <Grid Grid.Row="1" Margin="5,0,5,5">
