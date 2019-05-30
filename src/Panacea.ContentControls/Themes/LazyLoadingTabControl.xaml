@@ -368,13 +368,27 @@
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </Grid>
-                                <ProgressBar
-                                    Grid.Column="1"
-                                    Margin="30"
-                                    VerticalAlignment="Center"
-                                    Foreground="Black"
-                                    IsIndeterminate="True"
-                                    Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.IsBusy, Converter={StaticResource BoolToVis}}" />
+                                <Grid Grid.ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Viewbox Grid.Row="1" Grid.Column="1">
+                                        <ProgressBar
+                                            Grid.ColumnSpan="2"
+                                            Margin="30"
+                                            VerticalAlignment="Center"
+                                            Foreground="{TemplateBinding Color}"
+                                            IsIndeterminate="True"
+                                            Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.IsBusy, Converter={StaticResource BoolToVis}}" />
+                                    </Viewbox>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Border>
