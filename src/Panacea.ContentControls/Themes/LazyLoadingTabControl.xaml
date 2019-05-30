@@ -238,7 +238,7 @@
                                                         Background="Transparent"
                                                         DataContext="{x:Null}"
                                                         Foreground="#777"
-                                                        Icon="ic_refresh" />
+                                                        Icon="refresh" />
                                                 </Viewbox>
                                             </Button>
                                         </StackPanel>
@@ -368,11 +368,12 @@
                                         </TextBlock.Inlines>
                                     </TextBlock>
                                 </Grid>
-                                <!--<wpfspark:FluidProgressBar
+                                <ProgressBar
                                     Grid.Column="1"
                                     Margin="30"
                                     VerticalAlignment="Center"
                                     Foreground="Black"
+                                    IsIndeterminate="True"
                                     Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.IsBusy, Converter={StaticResource BoolToVis}}" />-->
                             </Grid>
                         </Grid>
