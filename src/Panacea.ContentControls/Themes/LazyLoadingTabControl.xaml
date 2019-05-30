@@ -374,7 +374,7 @@
                                     VerticalAlignment="Center"
                                     Foreground="Black"
                                     IsIndeterminate="True"
-                                    Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.IsBusy, Converter={StaticResource BoolToVis}}" />-->
+                                    Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.IsBusy, Converter={StaticResource BoolToVis}}" />
                             </Grid>
                         </Grid>
                     </Border>
