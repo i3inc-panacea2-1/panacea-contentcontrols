@@ -232,7 +232,8 @@
                                             <Button
                                                 Height="{Binding ElementName=PART_search, Path=ActualHeight}"
                                                 Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RefreshCommand}"
-                                                Style="{DynamicResource stylessWithBackground}">
+                                                Style="{DynamicResource stylessWithBackground}"
+                                                Padding="0">
                                                 <Viewbox Width="40">
                                                     <panaceaCtrl:MaterialIcon
                                                         Margin="5"
