@@ -87,7 +87,7 @@
                                                     Margin="3,5,0,0"
                                                     Padding="0"
                                                     VerticalAlignment="Stretch"
-                                                    FontSize="{DynamicResource FontSize-Normal}"
+                                                    panaceaCtrl:Material.RelativeFontSizeRatio="1.1"
                                                     Text="{Binding Name}"
                                                     TextTrimming="CharacterEllipsis"
                                                     TextWrapping="NoWrap"
