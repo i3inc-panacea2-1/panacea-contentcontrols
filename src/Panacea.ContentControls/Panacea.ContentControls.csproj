@@ -129,17 +129,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="NuGet.Build.Tasks.Pack">
+      <Version>5.1.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Panacea.Controls">
-      <Version>0.0.27-beta20190524-1517-g8a25a53</Version>
+      <Version>0.0.30-beta20190528-1151-g06d8238</Version>
     </PackageReference>
     <PackageReference Include="Panacea.Core">
-      <Version>5.0.0</Version>
+      <Version>8.0.1</Version>
     </PackageReference>
     <PackageReference Include="Panacea.Models">
-      <Version>0.0.4</Version>
+      <Version>0.0.5</Version>
     </PackageReference>
     <PackageReference Include="Panacea.Multilinguality">
-      <Version>1.0.0</Version>
+      <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Panacea.Mvvm">
       <Version>0.0.1</Version>
