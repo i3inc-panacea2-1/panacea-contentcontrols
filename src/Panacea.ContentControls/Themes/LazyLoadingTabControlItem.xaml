@@ -12,7 +12,8 @@
                     <Border
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        TextElement.FontSize="{DynamicResource FontSize-Normal}">
                         <Grid >
                             <panaceaCtrl:FastShadow
                                 Margin="4,5,3,3"
@@ -87,7 +88,7 @@
                                                     Margin="3,5,0,0"
                                                     Padding="0"
                                                     VerticalAlignment="Stretch"
-                                                    panaceaCtrl:Material.RelativeFontSizeRatio="1.1"
+                                                    FontSize="{DynamicResource FontSize-Large}"
                                                     Text="{Binding Name}"
                                                     TextTrimming="CharacterEllipsis"
                                                     TextWrapping="NoWrap"
