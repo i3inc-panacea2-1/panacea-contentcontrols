@@ -18,305 +18,305 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         ClipToBounds="True"
                         TextElement.FontSize="{DynamicResource FontSize-Large}">
-                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
-                            <Grid>
-                                <Grid x:Name="Root" Focusable="True">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*" />
-                                        <ColumnDefinition Width="4.2*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid
-                                        Grid.Row="0"
-                                        Grid.ColumnSpan="2"
-                                        Panel.ZIndex="1">
-                                        <Border Background="{TemplateBinding Color}">
-                                            <Border.Effect>
-                                                <DropShadowEffect
-                                                    BlurRadius="10"
-                                                    Opacity=".4"
-                                                    ShadowDepth="0" />
-                                            </Border.Effect>
-                                        </Border>
-                                        <Grid Margin="0,0,0,10">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="1*" />
-                                                <ColumnDefinition Width="4*" />
 
-                                            </Grid.ColumnDefinitions>
-                                            <Grid Margin="10,17,0,0">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto" />
-                                                    <ColumnDefinition />
-                                                </Grid.ColumnDefinitions>
-
-
-                                                <TextBlock
-                                                    Grid.Column="1"
-                                                    VerticalAlignment="Center"
-                                                    FontSize="{DynamicResource FontSize-Xx-Large}"
-                                                    FontWeight="SemiBold"
-                                                    Foreground="White"
-                                                    Text="{TemplateBinding Title}"
-                                                    TextTrimming="CharacterEllipsis"
-                                                    TextWrapping="NoWrap" />
-                                            </Grid>
-
-
-                                        </Grid>
-                                    </Grid>
-
-                                    <Grid Grid.Row="1" Panel.ZIndex="0">
-                                        <Grid>
-                                            <Border Background="White">
-                                                <Border.Effect>
-                                                    <DropShadowEffect Opacity=".1" />
-                                                </Border.Effect>
-                                            </Border>
-                                            <Grid Background="White">
-                                                <ListBox
-                                                    Name="CategoriesControl"
-                                                    Padding="0"
-                                                    BorderThickness="0"
-                                                    FontSize="{DynamicResource FontSize-Large}"
-                                                    ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.Categories}"
-                                                    ScrollViewer.CanContentScroll="False"
-                                                    ScrollViewer.IsDeferredScrollingEnabled="False"
-                                                    ScrollViewer.PanningMode="VerticalOnly"
-                                                    SelectedValue="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.SelectedCategory, Mode=TwoWay}"
-                                                    SnapsToDevicePixels="True">
-                                                    <ListBox.ItemContainerStyle>
-                                                        <Style TargetType="ListBoxItem">
-                                                            <Style.Setters>
-                                                                <Setter Property="Template">
-                                                                    <Setter.Value>
-                                                                        <ControlTemplate TargetType="ListBoxItem">
-                                                                            <Border
-                                                                                Name="Border"
-                                                                                Margin="0"
-                                                                                Padding="6,6"
-                                                                                BorderThickness="0"
-                                                                                SnapsToDevicePixels="True">
-                                                                                <ContentPresenter />
-                                                                            </Border>
-                                                                            <ControlTemplate.Triggers>
-                                                                                <Trigger Property="IsSelected" Value="true">
-                                                                                    <Setter TargetName="Border" Property="Background" Value="#ebebeb" />
-                                                                                    <Setter TargetName="Border" Property="TextBlock.Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=Color}" />
-                                                                                </Trigger>
-                                                                                <Trigger Property="IsSelected" Value="false">
-                                                                                    <Setter Property="Background" Value="Transparent" />
-                                                                                    <Setter TargetName="Border" Property="TextBlock.Foreground" Value="#686868" />
-                                                                                </Trigger>
-                                                                            </ControlTemplate.Triggers>
-                                                                        </ControlTemplate>
-                                                                    </Setter.Value>
-                                                                </Setter>
-                                                            </Style.Setters>
-
-                                                        </Style>
-                                                    </ListBox.ItemContainerStyle>
-                                                    <ListBox.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock
-                                                                Margin="0"
-                                                                Padding="5"
-                                                                FontWeight="Medium"
-                                                                Text="{Binding Name}" />
-                                                        </DataTemplate>
-                                                    </ListBox.ItemTemplate>
-
-                                                    <ListBox.Template>
-                                                        <ControlTemplate>
-                                                            <ScrollViewer
-                                                                x:Name="scroll"
-                                                                HorizontalScrollBarVisibility="Disabled"
-                                                                VerticalScrollBarVisibility="Hidden">
-                                                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
-                                                                <ScrollViewer.Template>
-                                                                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                                                                        <Grid>
-                                                                            <Grid.ColumnDefinitions>
-                                                                                <ColumnDefinition Width="Auto" />
-                                                                                <ColumnDefinition />
-                                                                            </Grid.ColumnDefinitions>
-                                                                            <Grid.RowDefinitions>
-                                                                                <RowDefinition />
-                                                                                <RowDefinition Height="Auto" />
-                                                                            </Grid.RowDefinitions>
-                                                                            <Border Grid.Column="1" BorderThickness="0,1,1,1">
-                                                                                <Border.BorderBrush>
-                                                                                    <SolidColorBrush Color="{DynamicResource BorderMediumColor}" />
-                                                                                </Border.BorderBrush>
-                                                                                <ScrollContentPresenter />
-                                                                            </Border>
-                                                                            <ScrollBar
-                                                                                x:Name="PART_VerticalScrollBar"
-                                                                                Grid.Column="1"
-                                                                                HorizontalAlignment="Right"
-                                                                                Maximum="{TemplateBinding ScrollableHeight}"
-                                                                                ViewportSize="{TemplateBinding ViewportHeight}"
-                                                                                Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-                                                                                Value="{TemplateBinding VerticalOffset}" />
-                                                                            <ScrollBar
-                                                                                x:Name="PART_HorizontalScrollBar"
-                                                                                Grid.Row="1"
-                                                                                Grid.Column="1"
-                                                                                Maximum="{TemplateBinding ScrollableWidth}"
-                                                                                Orientation="Horizontal"
-                                                                                ViewportSize="{TemplateBinding ViewportWidth}"
-                                                                                Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
-                                                                                Value="{TemplateBinding HorizontalOffset}" />
-                                                                        </Grid>
-                                                                    </ControlTemplate>
-                                                                </ScrollViewer.Template>
-                                                            </ScrollViewer>
-                                                            <ControlTemplate.Triggers>
-                                                                <Trigger Property="IsMouseOver" Value="True">
-                                                                    <Setter TargetName="scroll" Property="VerticalScrollBarVisibility" Value="Auto" />
-                                                                </Trigger>
-                                                            </ControlTemplate.Triggers>
-                                                        </ControlTemplate>
-                                                    </ListBox.Template>
-                                                </ListBox>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-
-                                </Grid>
-                                <Grid Panel.ZIndex="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*" />
-                                        <ColumnDefinition Width="4.2*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Border
-                                        Grid.Column="1"
-                                        Margin="0,10,20,0"
-                                        Background="#f2f2f2"
-                                        CornerRadius="2 2 0 0">
+                        <Grid>
+                            <Grid x:Name="Root" Focusable="True">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="4.2*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid
+                                    Grid.Row="0"
+                                    Grid.ColumnSpan="2"
+                                    Panel.ZIndex="1">
+                                    <Border Background="{TemplateBinding Color}">
                                         <Border.Effect>
                                             <DropShadowEffect
-                                                BlurRadius="15"
-                                                Direction="270"
+                                                BlurRadius="10"
                                                 Opacity=".4"
-                                                ShadowDepth="10" />
+                                                ShadowDepth="0" />
                                         </Border.Effect>
                                     </Border>
+                                    <Grid Margin="0,0,0,10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="4*" />
 
-                                    <Grid Grid.Column="1" Margin="0,15,20,0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
-                                        <Grid Grid.Column="1">
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Margin="10,17,0,0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto" />
                                                 <ColumnDefinition />
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition />
                                             </Grid.ColumnDefinitions>
+
+
                                             <TextBlock
-                                                Margin="10,5"
+                                                Grid.Column="1"
                                                 VerticalAlignment="Center"
                                                 FontSize="{DynamicResource FontSize-Xx-Large}"
-                                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.SelectedCategory.Name}"
-                                                TextTrimming="CharacterEllipsis" />
-
-                                            <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                                <Button
-                                                    Height="{Binding ElementName=PART_search, Path=ActualHeight}"
-                                                    Padding="0"
-                                                    Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RefreshCommand}"
-                                                    Style="{DynamicResource stylessWithBackground}">
-                                                    <Viewbox Width="40">
-                                                        <panaceaCtrl:MaterialIcon
-                                                            Margin="5"
-                                                            Background="Transparent"
-                                                            DataContext="{x:Null}"
-                                                            Foreground="#777"
-                                                            Icon="refresh" />
-                                                    </Viewbox>
-                                                </Button>
-                                            </StackPanel>
-                                            <TextBox
-                                                x:Name="PART_search"
-                                                Grid.Column="3"
-                                                Margin="0,5,10,5"
-                                                Padding="30,4,4,4"
-                                                HorizontalAlignment="Stretch"
-                                                VerticalAlignment="Center"
-                                                VerticalContentAlignment="Center"
-                                                Background="#eeffffff"
-                                                BorderBrush="#44000000"
-                                                BorderThickness="2"
-                                                Foreground="#444"
-                                                IsUndoEnabled="False"
-                                                MaxLength="50"
-                                                Style="{x:Null}"
-                                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.Search, UpdateSourceTrigger=PropertyChanged}"
-                                                Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSearchable, Converter={StaticResource BoolToVis}}" />
-                                            <Viewbox
-                                                Grid.Column="{Binding ElementName=PART_search, Path=(Grid.Column)}"
-                                                Width="40"
-                                                Height="{Binding ElementName=PART_search, Path=ActualHeight}"
-                                                HorizontalAlignment="Left"
-                                                Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSearchable, Converter={StaticResource BoolToVis}}">
-                                                <panaceaCtrl:MaterialIcon
-                                                    Margin="5"
-                                                    Background="Transparent"
-                                                    DataContext="{x:Null}"
-                                                    Foreground="#777"
-                                                    Icon="search" />
-                                            </Viewbox>
-
-
+                                                FontWeight="SemiBold"
+                                                Foreground="White"
+                                                Text="{TemplateBinding Title}"
+                                                TextTrimming="CharacterEllipsis"
+                                                TextWrapping="NoWrap" />
                                         </Grid>
 
-                                        <ItemsControl
-                                            x:Name="PART_itemscontainer"
-                                            Grid.Row="1"
-                                            Grid.Column="1"
-                                            Panel.ZIndex="2"
-                                            ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.Items}"
-                                            ScrollViewer.CanContentScroll="False"
-                                            ScrollViewer.IsDeferredScrollingEnabled="False"
-                                            ScrollViewer.PanningMode="VerticalOnly"
-                                            VirtualizingPanel.CacheLength="5"
-                                            VirtualizingPanel.CacheLengthUnit="Item"
-                                            VirtualizingPanel.IsVirtualizing="True"
-                                            VirtualizingPanel.ScrollUnit="Pixel"
-                                            VirtualizingPanel.VirtualizationMode="Recycling">
-                                            <!--  Background="LightGray"  Columns="{Binding Columns, ElementName=main}"  -->
 
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <local:LazyLoadingTabControlItem DataContext="{Binding}" />
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
+                                    </Grid>
+                                </Grid>
 
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
+                                <Grid Grid.Row="1" Panel.ZIndex="0">
+                                    <Grid>
+                                        <Border Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Opacity=".1" />
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Background="White">
+                                            <ListBox
+                                                Name="CategoriesControl"
+                                                Padding="0"
+                                                BorderThickness="0"
+                                                FontSize="{DynamicResource FontSize-Large}"
+                                                ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.Categories}"
+                                                ScrollViewer.CanContentScroll="False"
+                                                ScrollViewer.IsDeferredScrollingEnabled="False"
+                                                ScrollViewer.PanningMode="VerticalOnly"
+                                                SelectedValue="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.SelectedCategory, Mode=TwoWay}"
+                                                SnapsToDevicePixels="True">
+                                                <ListBox.ItemContainerStyle>
+                                                    <Style TargetType="ListBoxItem">
+                                                        <Style.Setters>
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="ListBoxItem">
+                                                                        <Border
+                                                                            Name="Border"
+                                                                            Margin="0"
+                                                                            Padding="6,6"
+                                                                            BorderThickness="0"
+                                                                            SnapsToDevicePixels="True">
+                                                                            <ContentPresenter />
+                                                                        </Border>
+                                                                        <ControlTemplate.Triggers>
+                                                                            <Trigger Property="IsSelected" Value="true">
+                                                                                <Setter TargetName="Border" Property="Background" Value="#ebebeb" />
+                                                                                <Setter TargetName="Border" Property="TextBlock.Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=Color}" />
+                                                                            </Trigger>
+                                                                            <Trigger Property="IsSelected" Value="false">
+                                                                                <Setter Property="Background" Value="Transparent" />
+                                                                                <Setter TargetName="Border" Property="TextBlock.Foreground" Value="#686868" />
+                                                                            </Trigger>
+                                                                        </ControlTemplate.Triggers>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </Style.Setters>
 
-                                                    <UniformGrid
-                                                        x:Name="ItemsGrid"
-                                                        HorizontalAlignment="Stretch"
-                                                        VerticalAlignment="Stretch"
+                                                    </Style>
+                                                </ListBox.ItemContainerStyle>
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock
+                                                            Margin="0"
+                                                            Padding="5"
+                                                            FontWeight="Medium"
+                                                            Text="{Binding Name}" />
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+
+                                                <ListBox.Template>
+                                                    <ControlTemplate>
+                                                        <ScrollViewer
+                                                            x:Name="scroll"
+                                                            HorizontalScrollBarVisibility="Disabled"
+                                                            VerticalScrollBarVisibility="Hidden">
+                                                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                                            <ScrollViewer.Template>
+                                                                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                                                    <Grid>
+                                                                        <Grid.ColumnDefinitions>
+                                                                            <ColumnDefinition Width="Auto" />
+                                                                            <ColumnDefinition />
+                                                                        </Grid.ColumnDefinitions>
+                                                                        <Grid.RowDefinitions>
+                                                                            <RowDefinition />
+                                                                            <RowDefinition Height="Auto" />
+                                                                        </Grid.RowDefinitions>
+                                                                        <Border Grid.Column="1" BorderThickness="0,1,1,1">
+                                                                            <Border.BorderBrush>
+                                                                                <SolidColorBrush Color="{DynamicResource BorderMediumColor}" />
+                                                                            </Border.BorderBrush>
+                                                                            <ScrollContentPresenter />
+                                                                        </Border>
+                                                                        <ScrollBar
+                                                                            x:Name="PART_VerticalScrollBar"
+                                                                            Grid.Column="1"
+                                                                            HorizontalAlignment="Right"
+                                                                            Maximum="{TemplateBinding ScrollableHeight}"
+                                                                            ViewportSize="{TemplateBinding ViewportHeight}"
+                                                                            Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                                                            Value="{TemplateBinding VerticalOffset}" />
+                                                                        <ScrollBar
+                                                                            x:Name="PART_HorizontalScrollBar"
+                                                                            Grid.Row="1"
+                                                                            Grid.Column="1"
+                                                                            Maximum="{TemplateBinding ScrollableWidth}"
+                                                                            Orientation="Horizontal"
+                                                                            ViewportSize="{TemplateBinding ViewportWidth}"
+                                                                            Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                                                            Value="{TemplateBinding HorizontalOffset}" />
+                                                                    </Grid>
+                                                                </ControlTemplate>
+                                                            </ScrollViewer.Template>
+                                                        </ScrollViewer>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="scroll" Property="VerticalScrollBarVisibility" Value="Auto" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </ListBox.Template>
+                                            </ListBox>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+
+                            </Grid>
+                            <Grid Panel.ZIndex="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="4.2*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Border
+                                    Grid.Column="1"
+                                    Margin="0,10,20,0"
+                                    Background="#f2f2f2"
+                                    CornerRadius="2 2 0 0">
+                                    <Border.Effect>
+                                        <DropShadowEffect
+                                            BlurRadius="15"
+                                            Direction="270"
+                                            Opacity=".4"
+                                            ShadowDepth="10" />
+                                    </Border.Effect>
+                                </Border>
+
+                                <Grid Grid.Column="1" Margin="0,15,20,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Margin="10,5"
+                                            VerticalAlignment="Center"
+                                            FontSize="{DynamicResource FontSize-Xx-Large}"
+                                            Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.SelectedCategory.Name}"
+                                            TextTrimming="CharacterEllipsis" />
+
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button
+                                                Height="{Binding ElementName=PART_search, Path=ActualHeight}"
+                                                Padding="0"
+                                                Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RefreshCommand}"
+                                                Style="{DynamicResource stylessWithBackground}">
+                                                <Viewbox Width="40">
+                                                    <panaceaCtrl:MaterialIcon
+                                                        Margin="5"
                                                         Background="Transparent"
-                                                        Columns="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=Columns}"
-                                                        Focusable="True"
-                                                        Rows="2" />
+                                                        DataContext="{x:Null}"
+                                                        Foreground="#777"
+                                                        Icon="refresh" />
+                                                </Viewbox>
+                                            </Button>
+                                        </StackPanel>
+                                        <TextBox
+                                            x:Name="PART_search"
+                                            Grid.Column="3"
+                                            Margin="0,5,10,5"
+                                            Padding="30,4,4,4"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            Background="#eeffffff"
+                                            BorderBrush="#44000000"
+                                            BorderThickness="2"
+                                            Foreground="#444"
+                                            IsUndoEnabled="False"
+                                            MaxLength="50"
+                                            Style="{x:Null}"
+                                            Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.Search, UpdateSourceTrigger=PropertyChanged}"
+                                            Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSearchable, Converter={StaticResource BoolToVis}}" />
+                                        <Viewbox
+                                            Grid.Column="{Binding ElementName=PART_search, Path=(Grid.Column)}"
+                                            Width="40"
+                                            Height="{Binding ElementName=PART_search, Path=ActualHeight}"
+                                            HorizontalAlignment="Left"
+                                            Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSearchable, Converter={StaticResource BoolToVis}}">
+                                            <panaceaCtrl:MaterialIcon
+                                                Margin="5"
+                                                Background="Transparent"
+                                                DataContext="{x:Null}"
+                                                Foreground="#777"
+                                                Icon="search" />
+                                        </Viewbox>
 
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
 
-                                        </ItemsControl>
+                                    </Grid>
 
-                                        <!--
+                                    <ItemsControl
+                                        x:Name="PART_itemscontainer"
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Panel.ZIndex="2"
+                                        ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.Items}"
+                                        ScrollViewer.CanContentScroll="False"
+                                        ScrollViewer.IsDeferredScrollingEnabled="False"
+                                        ScrollViewer.PanningMode="VerticalOnly"
+                                        VirtualizingPanel.CacheLength="5"
+                                        VirtualizingPanel.CacheLengthUnit="Item"
+                                        VirtualizingPanel.IsVirtualizing="True"
+                                        VirtualizingPanel.ScrollUnit="Pixel"
+                                        VirtualizingPanel.VirtualizationMode="Recycling">
+                                        <!--  Background="LightGray"  Columns="{Binding Columns, ElementName=main}"  -->
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <local:LazyLoadingTabControlItem DataContext="{Binding}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+
+                                                <UniformGrid
+                                                    x:Name="ItemsGrid"
+                                                    HorizontalAlignment="Stretch"
+                                                    VerticalAlignment="Stretch"
+                                                    Background="Transparent"
+                                                    Columns="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=Columns}"
+                                                    Focusable="True"
+                                                    Rows="2" />
+
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+
+                                    </ItemsControl>
+
+                                    <!--
                                                                             <StackPanel
                                             Grid.Column="1"
                                             Margin="10,0,0,0"
@@ -344,54 +344,53 @@
                                                 Next
                                             </Button>
                                         </StackPanel>
-                                        -->
-                                        <Grid
-                                            Grid.Row="2"
-                                            Margin="3"
-                                            HorizontalAlignment="Right">
-                                            <panaceaCtrl:PagerControl
-                                                Background="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=Color}"
-                                                CurrentPage="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=ItemProvider.CurrentPage, Mode=TwoWay}"
-                                                MaxPages="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=ItemProvider.TotalPages}" />
-                                        </Grid>
-                                    </Grid>
-                                    <Grid Grid.Column="1" Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=ItemProvider.IsBusy, Converter={StaticResource BooleanInvertedToVisibilityConverter}}">
-                                        <TextBlock
-                                            Grid.Column="0"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            FontSize="{DynamicResource FontSize-Xx-Large}"
-                                            Visibility="{Binding ElementName=PART_itemscontainer, Path=HasItems, Converter={StaticResource BooleanInvertedToVisibilityConverter}}">
-                                            <TextBlock.Inlines>
-                                                <Run Text="{TemplateBinding Title}" />
-                                                <Run Text="{multilinguality:Translate 'not available', 'core'}" />
-                                            </TextBlock.Inlines>
-                                        </TextBlock>
-                                    </Grid>
-                                    <Grid Grid.ColumnSpan="2">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition />
-                                            <ColumnDefinition />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                            <RowDefinition />
-                                        </Grid.RowDefinitions>
-                                        <Viewbox Grid.Row="1" Grid.Column="1">
-                                            <ProgressBar
-                                                Grid.ColumnSpan="2"
-                                                Margin="30"
-                                                VerticalAlignment="Center"
-                                                Foreground="{TemplateBinding Color}"
-                                                IsIndeterminate="True"
-                                                Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.IsBusy, Converter={StaticResource BoolToVis}}" />
-                                        </Viewbox>
+                                    -->
+                                    <Grid
+                                        Grid.Row="2"
+                                        Margin="3"
+                                        HorizontalAlignment="Right">
+                                        <panaceaCtrl:PagerControl
+                                            Background="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=Color}"
+                                            CurrentPage="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=ItemProvider.CurrentPage, Mode=TwoWay}"
+                                            MaxPages="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=ItemProvider.TotalPages}" />
                                     </Grid>
                                 </Grid>
+                                <Grid Grid.Column="1" Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:LazyLoadingTabControl}, Path=ItemProvider.IsBusy, Converter={StaticResource BooleanInvertedToVisibilityConverter}}">
+                                    <TextBlock
+                                        Grid.Column="0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="{DynamicResource FontSize-Xx-Large}"
+                                        Visibility="{Binding ElementName=PART_itemscontainer, Path=HasItems, Converter={StaticResource BooleanInvertedToVisibilityConverter}}">
+                                        <TextBlock.Inlines>
+                                            <Run Text="{TemplateBinding Title}" />
+                                            <Run Text="{multilinguality:Translate 'not available', 'core'}" />
+                                        </TextBlock.Inlines>
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Viewbox Grid.Row="1" Grid.Column="1">
+                                        <ProgressBar
+                                            Grid.ColumnSpan="2"
+                                            Margin="30"
+                                            VerticalAlignment="Center"
+                                            Foreground="{TemplateBinding Color}"
+                                            IsIndeterminate="True"
+                                            Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemProvider.IsBusy, Converter={StaticResource BoolToVis}}" />
+                                    </Viewbox>
+                                </Grid>
                             </Grid>
-                        </ScrollViewer>
+                        </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
