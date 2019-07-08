@@ -257,7 +257,21 @@ public class LazyLoadingTabControl : Control
 
     }
 
-    private async void Provider_Refreshed(object sender, EventArgs e)
+
+
+        public string NoItemsText
+        {
+            get { return (string)GetValue(NoItemsTextProperty); }
+            set { SetValue(NoItemsTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for NoItemsText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NoItemsTextProperty =
+            DependencyProperty.Register("NoItemsText", typeof(string), typeof(LazyLoadingTabControl), new PropertyMetadata("No items found"));
+
+
+
+        private async void Provider_Refreshed(object sender, EventArgs e)
     {
         await RefreshCategories();
     }

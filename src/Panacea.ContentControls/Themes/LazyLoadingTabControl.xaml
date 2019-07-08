@@ -366,11 +366,9 @@
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontSize="{DynamicResource FontSize-Xx-Large}"
-                                        Visibility="{Binding ElementName=PART_itemscontainer, Path=HasItems, Converter={StaticResource BooleanInvertedToVisibilityConverter}}">
-                                        <TextBlock.Inlines>
-                                            <Run Text="{TemplateBinding Title}" />
-                                            <Run Text="{multilinguality:Translate 'not available', 'core'}" />
-                                        </TextBlock.Inlines>
+                                        Visibility="{Binding ElementName=PART_itemscontainer, Path=HasItems, Converter={StaticResource BooleanInvertedToVisibilityConverter}}"
+                                        Text="{TemplateBinding NoItemsText}">
+                                        
                                     </TextBlock>
                                 </Grid>
                                 <Grid Grid.ColumnSpan="2">
