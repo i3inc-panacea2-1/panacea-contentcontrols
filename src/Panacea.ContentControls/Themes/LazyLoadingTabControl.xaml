@@ -233,8 +233,7 @@
                                             <Button
                                                 Height="{Binding ElementName=PART_search, Path=ActualHeight}"
                                                 Padding="0"
-                                                Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RefreshCommand}"
-                                                Style="{DynamicResource stylessWithBackground}">
+                                                Command="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RefreshCommand}">
                                                 <Viewbox Width="40">
                                                     <panaceaCtrl:MaterialIcon
                                                         Margin="5"
@@ -366,10 +365,8 @@
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontSize="{DynamicResource FontSize-Xx-Large}"
-                                        Visibility="{Binding ElementName=PART_itemscontainer, Path=HasItems, Converter={StaticResource BooleanInvertedToVisibilityConverter}}"
-                                        Text="{TemplateBinding NoItemsText}">
-                                        
-                                    </TextBlock>
+                                        Text="{TemplateBinding NoItemsText}"
+                                        Visibility="{Binding ElementName=PART_itemscontainer, Path=HasItems, Converter={StaticResource BooleanInvertedToVisibilityConverter}}" />
                                 </Grid>
                                 <Grid Grid.ColumnSpan="2">
                                     <Grid.ColumnDefinitions>
